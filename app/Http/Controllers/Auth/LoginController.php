@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -25,7 +27,23 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+//    protected $redirectTo = '/home';
+
+    protected function redirectTo()
+    {
+        $role = Auth::user()->role;
+        $email = Auth::user()->email;
+
+
+        if($role || $email=='admin@gmail.com'){
+            return route('users');
+
+        }
+        return route('index');
+//
+//        return view('frontend.frontend.admin');
+
+    }
 
     /**
      * Create a new controller instance.

@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Course;
 
 class Course extends Model
 {
-    // Table Name
-    protected $table = 'courses';
-    // Primary Key
-    public $primaryKey = 'id';
-    // Timestamps
-    public $timestamps = true;
+    protected $guarded = [];
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
