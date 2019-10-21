@@ -15,7 +15,7 @@ class UserController extends Controller
         $this->middleware('auth');
     }
     public function show(){
-        $users = DB::table('users')->get();
+        $users = User::where('role', '0')->get();
 
         return view('admin.users',compact('users'));
     }

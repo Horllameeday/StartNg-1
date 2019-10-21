@@ -69,3 +69,16 @@ Route::get('/find-course', 'BaseController@findcourse')->name('find-course');
 Route::get('/blog1', 'BaseController@blog1')->name('blog1');
 Route::get('/blog2', 'BaseController@blog2')->name('blog2');
 Route::get('/curriculum', 'BaseController@curriculum')->name('curriculum');
+
+/**
+ *
+ * SuperAdmin Routes
+ */
+
+
+Route::group(['middleware' => ['auth', 'admin']], function() {
+    Route::get('/mentors', 'AdminController@index')->name('mentors');
+    Route::get('/mentors/create', 'AdminController@create')->name('mentors.create');
+    Route::post('/mentors', 'AdminController@store')->name('mentors.store');
+    
+});
