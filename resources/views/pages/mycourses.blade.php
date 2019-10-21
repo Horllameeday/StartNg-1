@@ -134,64 +134,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-        <div class="container">
-            <a href="/" class="navbar-brand"><img
-                    src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570873250/startng/Logo_1_ib5bjh.png"
-                    class="img-fluid" alt="logo" width="150px"></a>
-            <button class="navbar-toggler float-right custom-toggler" type="button" data-toggle="collapse"
-                data-target="#navbar9" style="color: #000;">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar9">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{route('about')}}">About Us</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{route('courses.index')}}">Courses</a>
-                    </li>
-
-                    @if(!Auth::guest())
-                        <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="{{route('mycourses',\Illuminate\Support\Facades\Auth::user()->id)}}" style="color: #fff;">My courses</a>
-                        </li>
-                    @endif
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{route('hire')}}">Hire A Grad</a>
-                    </li>
-                    <li class="nav-item mr-5">
-                        <a class="nav-link" href="{{route('contact')}}">Contact Us</a>
-                    </li>
-
-                    @if(!Auth::guest())
-
-                        {{--<a class="btn btn-success nav-link px-5" href="{{ route('logout') }}" style="color: #fff;">Logout--}}
-                        {{--</a>--}}
-                        <a class="btn btn-success nav-link px-5" href="{{ route('logout') }}"
-                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-
-
-                    @endif
-
-                    @if(Auth::guest())
-                        <li class="nav-item mr-5">
-                            <a class="btn btn-success nav-link px-5" href="/signup" style="color: #fff;">Start
-                                Learning</a>
-                        </li>
-                    @endif
-
-                </ul>
-            </div>
-        </div>
-    </nav>
+    @include('inc.navbar')
 
     <div class="container-fluid body-banner pt-5 pb-5">
         <div class="col-md-6 offset-md-2">
@@ -247,8 +190,8 @@
                                 <span class="fa fa-star checked"></span>
                                 <span class="fa fa-star checked mb-3"></span> <br>
 
-                                {{--<a href="{{route('details',$item['id'])}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"--}}
-                                   {{--style="background-color: #FFE797; border: thin solid #FFE797;">Details</a>--}}
+                                <a href="{{route('courses.detail', $item['id'])}}" class="btn btn-primary pr-3 pl-3 pt-1 pb-1"
+                                   style="background-color: #FFE797; border: thin solid #FFE797;">Details</a>
                             </div>
                         </div>
                     </div>
@@ -311,70 +254,6 @@
         {{--</div>--}}
     </div>
 
-    <div class="container-fluid video">
-        <div class="row align-items-center">
-            <div class="col-md-6 pb-3" style="color: #fff;">
-                <h4 class="pl-3 pb-3" style="font-weight:bold; font-size: 24px;">The beginning of your career <br>
-                    starts here. With us.
-                </h4>
-                <p class="pl-5" style="font-weight:bold;">- Intensive learning sessions</p>
-                <p class="pl-5">The HNG internship is a 3-month remote <br> internship designed ---to find and <br>
-                    develop the most talented software developers. </p>
-                <p class="pl-5" style="font-weight:bold;">- Intensive learning sessions</p>
-                <p class="pl-5">The HNG internship is a 3-month remote <br> internship designed ---to find and <br>
-                    develop the most talented software developers. </p>
-                <a href="" class="pl-5" style="color: #fff; font-weight: bold;">Learn more >></a>
-            </div>
-            <div class="col-md-6">
-                <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570929621/startng/Group_417_rx40it.png"
-                    class="img-fluid">
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img class="img-fluid"
-                    src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570930231/startng/Group_236_dr5bq8.png">
-            </div>
-            <div class="col-md-6">
-                <h4 class="pb-3">Take Your First Steps in Achieving Your Dreams</h4>
-                <p class="pb-4">The HNG internship is a 3-month remote internship <br> designed to find and develop the
-                    most talented
-                    <br> software developers. Everyone is welcome to participate <br> (there is no entrance exam). </p>
-                <a href="{{route('signup')}}" class="btn btn-success pl-5 pr-5">Start Learning</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container-fluid help mt-5 pt-5 pb-5">
-        <div class="col-md-6 offset-md-3 text-center pt-5" style="color: #fff;">
-            <h4 class="pb-3">Need Professional Help?</h4>
-            <p class="pb-4">After 3 months of training and projects, our graduates <br> are ready to take on full-time
-                or remote jobs at your <br> company.
-            </p>
-            <a href="{{route('hire')}}" class="btn btn-success pl-5 pr-5">Hire
-                a Graduate
-            </a>
-        </div>
-    </div>
-
-    <div class="container-fluid pt-5 pb-5" style="background-color: #fff;">
-        <div class="col-md-10 offset-md-1">
-            <img src="https://res.cloudinary.com/sgnolebagabriel/image/upload/v1570930756/startng/Testimonials_dwtp2n.png"
-                class="img-fluid">
-        </div>
-        <div class="col-md-6 offset-md-3 text-center pt-5 pb-5">
-            <h4>Online or Offline, We Are Here For You</h4>
-            <p>The HNG internship is a 3-month remote internship designed to find and develop the most talented software
-                developers.
-            </p>
-            <a href="{{route('signup')}}" class="btn btn-success pl-5 pr-5">Start
-                Learning</a>
-        </div>
-    </div>
-
     <div class="container-fluid pt-5 pb-5" style="background-color: rgba(42, 43, 42, 0.05);">
         <div class="container pt-5 pb-5">
             <div class="row align-items-center">
@@ -397,58 +276,7 @@
     </div>
 
     <!-- Footer -->
-    <div class="container-fluid text-white deep">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 mt-3 mb-4">
-                        <img src="https://res.cloudinary.com/juwon-tech/image/upload/v1570818437/Logo_1_oyasky.png"
-                            alt="">
-                    </div>
-                </div>
-
-                <div class="row pb-4">
-                    <div class="col-lg-4 col-md-12 mb-3">
-                        <h4 class='mb-4'>Ready to take the Leap?</h4>
-                        <a href="{{route('signup')}}" class='btn btn-success px-5 py-2 mb-5'>Start!</a>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 my-2">
-                        <li><a href="{{route('about')}}">About Us</a></li>
-                        <li><a href="{{route('courses.index')}}">Our Course</a></li>
-                        <li><a href="{{route('hire')}}">Hire a Grad</a></li>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 my-2">
-                        <li><a href="{{route('curriculum')}}">Curriculum</a></li>
-                        <li><a href="{{route('blog2')}}">Blog</a></li>
-                        <li><a href="{{route('blog1')}}">Student Stories</a></li>
-
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 my-2">
-                        <li><a href="{{route('find-course')}}">Find a Course</a></li>
-                        <li><a href="{{route('faq')}}">FAQ</a></li>
-                        <li><a href="{{route('contact')}}">Contact Us</a></li>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6 my-2">
-                        <li><a href="{{route('terms')}}">Terms of Service</a></li>
-                        <li><a href="{{route('privacy')}}">Privacy Policy</a></li>
-                    </div>
-                </div>
-
-            </div>
-    </div>
-    <div class="container-fluid text-white py-2" style="background: #2E0435; width:100%;">
-        <div class="container text-right">
-            <div class="row icons">
-                <div class="col-md-12 ">
-                    <a href=""><i class='fab fa-twitter' aria-hidden="true"></i></a>
-                    <a href=""><i class='fab fa-instagram' aria-hidden="true"></i></a>
-                    <a href=""><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                </div>
-            </div>
-        </div>
-        </footer>
-    </div>
-
+    @include('inc.footer')
     <!-- End of Footer -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>

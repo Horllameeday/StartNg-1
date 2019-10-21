@@ -662,7 +662,7 @@
                     Augue mollis a molestie sit. Odio lobortis justo sit at eget semper amet adipiscing. 
                     Netus sit imperdiet tincidunt ut. Habitasse amet sagittis egestas quis ipsum.
                 </p>
-                <a class="btn btn-success pt-1 pb-1" href="register.blade.php" style="background-color:#3F113D; color: #fff; border-color: #3F113D; font-size: 16px;">Start
+                <a class="btn btn-success pt-1 pb-1" href="{{route('register')}}" style="background-color:#3F113D; color: #fff; border-color: #3F113D; font-size: 16px;">Start
                         Learning</a>
             </div>
             <div class="build-img d-none d-lg-block">

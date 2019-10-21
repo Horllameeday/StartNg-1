@@ -158,7 +158,7 @@ class BaseController extends Controller
                     array_push($courses, (array)$output);
                 }
 
-                return view('frontend.frontend.mycourses',compact('courses'));
+                return view('pages.mycourses',compact('courses'));
             }
 
             else{
