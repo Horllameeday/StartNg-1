@@ -369,7 +369,7 @@
         <div class="col-md-6 offset-md-1 text-white " id="top">
             <h4 class="font-weight-bold mt-5 pt-5 pb-4">Upgrade Your Skills with <br> Our Curriculum</h4>
             <p class="pb-4" style="font-size: 20px;">The HNG internship is a 3-month remote <br> internship designed ---to find and develop the <br> most talented software developers. </p>
-            <a class="btn btn-success pl-5 pr-5 mb-4" href="register.html" style="background-color:#44CF6C; color: #fff; border-color: #44CF6C;">Start
+            <a class="btn btn-success pl-5 pr-5 mb-4" href="{{route('register')}}" style="background-color:#44CF6C; color: #fff; border-color: #44CF6C;">Start
                 Learning</a>
         </div>
     </div>
@@ -383,7 +383,7 @@
               <div class="col-md-6">
                   <h4 class="font-weight-bold" style="font-size: 1.25rem">Learn Anywhere, Anytime, With Other Creatives</h4>
                   <p class="exp">The HNG internship is a 3-month remote <br> internship designed to find and develop the <br> most talented software developers. Everyone is <br> welcome to participate (there is no entrance <br> exam). </p>
-                  <a href="#" class="more">Learn more >></a>
+                  <a href="{{route('courses.index')}}" class="more">Learn more >></a>
               </div>
             </div>
         </div>
@@ -859,7 +859,7 @@
                 <h4 class="font-weight-bold pb-3">Begin Your Journey to Being Certified in Your Field</h4>
                 <p class="pb-3">The HNG internship is a 3-month remote <br> internship designed to find and develop the
                     <br> most talented software developers. Everyone is <br> welcome to participate (there is no entrance <br> exam). </p>
-                <a href="register.html" class="btn btn-success pl-5 pr-5 mb-4" style="background-color:#44CF6C; color: #fff; border-color: #44CF6C;">Start
+                <a href="{{route('register')}}" class="btn btn-success pl-5 pr-5 mb-4" style="background-color:#44CF6C; color: #fff; border-color: #44CF6C;">Start
                     Learning</a>
             </div>
             <div class="col-md-6">

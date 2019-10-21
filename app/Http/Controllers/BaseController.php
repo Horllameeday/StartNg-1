@@ -68,7 +68,7 @@ class BaseController extends Controller
 
     public function login()
     {
-        return view('frontend.frontend.login');
+        return view('pages.login');
     }
 
     public function search(){
@@ -79,16 +79,16 @@ class BaseController extends Controller
         $query= Course::Where('name', 'like', '%' . $data['course'] . '%')->exists();
         if($query){
             $courses= Course::Where('name', 'like', '%' . $data['course'] . '%')->get();
-            return view('frontend.frontend.search',compact('courses'));
+            return view('pages.search',compact('courses'));
         }
         return redirect('find-course')->with('error','Course Not Found');
-        return view('frontend.frontend.findcourse')->with('error','Course not Found');
+        return view('pages.findcourse')->with('error','Course not Found');
 
     }
 
     public function register()
     {
-        return view('frontend.frontend.register');
+        return view('pages.register');
     }
 
     public function admin()

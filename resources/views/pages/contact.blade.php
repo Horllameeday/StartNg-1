@@ -210,7 +210,7 @@
                 </div>
 
                 <div class="col-md-6 offset-md-3 text-center mb-5">
-                    <p class="pb-3">By filling out this form and clicking submit, <br> you acknowledge our <a href="" style="color: #44CF6C">privacy policy</a></p>
+                    <p class="pb-3">By filling out this form and clicking submit, <br> you acknowledge our <a href="{{route('privacy')}}" style="color: #44CF6C">privacy policy</a></p>
                     <button class="btn btn-success pl-5 pr-5">Submit</button>
                 </div>
             </div>

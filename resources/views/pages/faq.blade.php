@@ -344,7 +344,7 @@
                 <div class="text-center my-4">
                     <h4 class="text-dark font-weight-bold">Didn’t find an answer to your question?</h4>
                     <p class="">Write us a message and describe your problem!</p>
-                    <a href="contactus.html" class="btn btn-primary px-5">Contact</a>
+                    <a href="{{route('contact')}}" class="btn btn-primary px-5">Contact</a>
                 </div>
             </div>
         </section>
